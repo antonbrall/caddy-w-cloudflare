@@ -19,12 +19,14 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: Docker Image Update Checker
+      - name: Check if update available
         id: baseupdatecheck
-        uses: lucacome/docker-image-update-checker@v1.1.0
+        uses: lucacome/docker-image-update-checker@v2.0.0
         with:
           base-image: caddy:alpine
-          image: antonbralldev/caddy-w-cloudflare:latest # update for your image
+          image: antonbralldev/caddy-w-cloudflare:latest
+          platforms: linux/amd64
+
 
       # only execute subsequent steps if an update is actually NEEDED.
       # unfortunately we need to add an if-condition to all steps now
