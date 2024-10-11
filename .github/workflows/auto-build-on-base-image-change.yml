@@ -23,7 +23,7 @@ jobs:
         id: baseupdatecheck
         uses: lucacome/docker-image-update-checker@v1.1.0
         with:
-          base-image: caddy:alpine
+          base-image: caddy/alpine
           image: antonbralldev/caddy-w-cloudflare # update for your image
 
       # only execute subsequent steps if an update is actually NEEDED.
